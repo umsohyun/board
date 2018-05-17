@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db/mybatis/SqlMapConfig.properties" />
+  
+  	<typeAliases>
+  		<typeAlias alias="WebMemberVO" type="board.user.model.WebMemberVO" />
+  		<typeAlias alias="MainBoardVO" type="board.user.model.MainBoardVO" />
+  		<typeAlias alias="BoardVO" type="board.user.model.BoardVO" />
+  		<typeAlias alias="FileInsertVO" type="board.user.model.FileInsertVO" />
+  	</typeAliases>
+  
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="db/mybatis/sqlmap/webmember.xml"/>
+    <mapper resource="db/mybatis/sqlmap/mainBoard.xml"/>
+    <mapper resource="db/mybatis/sqlmap/board.xml"/>
+    <mapper resource="db/mybatis/sqlmap/file.xml"/>
+  </mappers>
+</configuration>

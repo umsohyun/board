@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mainBoard">
+	 
+	 <select id="getMainBoardList" resultType="MainBoardVO">
+	 	select * from main_board where main_board_del = 'N' order by main_board_no asc
+	 </select>
+	 
+	 <select id="getMainInfo" resultType="MainBoardVO" parameterType="Integer">
+	 	select * from main_board where main_board_no = #{mainBoardNo}
+	 </select>
+	 
+	 <insert id="mainBoardInsert" parameterType="MainBoardVO">
+	 	insert into main_board(main_board_no, main_board_name, main_board_del, main_board_mem_id)
+		values (main_board_seq.NEXTVAL, #{main_board_name}, #{main_board_del}, #{main_board_mem_id})
+	 </insert>
+	 
+	 <update id="mainBoardActive" parameterType="Integer">
+	 	update main_board
+		set    	  main_board_del = 'Y'
+		where  main_board_no = #{main_board_no}
+	 </update>
+</mapper>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">
+	 
+	 <!-- 파일 저장 -->
+	 <insert id="insertFile" parameterType="FileInsertVO">
+	 	insert into file_insert(file_no, file_root, file_board_seq)
+		values (file_seq.nextval, #{file_root}, #{file_board_seq})
+	 </insert>
+	 
+</mapper>
+
+
+
+
+
+
